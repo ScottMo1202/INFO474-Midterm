@@ -1,1 +1,3 @@
-# INFO474-Midterm
+## Pokemon Midterm
+
+
