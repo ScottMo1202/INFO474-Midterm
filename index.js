@@ -47,9 +47,9 @@
                 y_min: d3.min(numeric_Total),
                 y_max: d3.max(numeric_Total)
         }
-        map_functions = getAxis(xy_limits, "Sp. Def", "Total");
+        helpers = getAxis(xy_limits, "Sp. Def", "Total");
 
-        var lenDrop = d3.select("body")
+        let lenDrop = d3.select("body")
                 .attr('x', 1000)
                 .attr('y', 100)
                 .append("select")
@@ -102,7 +102,7 @@
             }
         });
 
-        var generationDrop = d3.select("body").append("select").attr("class", "gen-drop");
+        let generationDrop = d3.select("body").append("select").attr("class", "gen-drop");
         generationDrop.append('option')
             .data(genSelected)
             .text('All')
@@ -162,8 +162,8 @@
             .data(genSelected)
             .enter()
             .append('circle')
-            .attr('cx', map_functions.x)
-            .attr('cy', map_functions.y)
+            .attr('cx', helpers.x)
+            .attr('cy', helpers.y)
             .attr('r', 5)
             .attr('fill', (d) => {return colors[d["Type 1"]]})
             .on('mouseover', (d) => {
@@ -172,7 +172,7 @@
                     .style("opacity", .9);
                 div.html(d.Name + "<br/>" + d["Type 1"] + "<br/>" + d["Type 2"])
                     .style("left", (d3.event.pageX) + "px")
-                    .style("top", (d3.event.pageY - 28) + "px");
+                    .style("top", (d3.event.pageY - 30) + "px");
             })
         
         svgContainer.append('text')
